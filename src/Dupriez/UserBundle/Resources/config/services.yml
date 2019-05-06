@@ -1,0 +1,4 @@
+services:
+#    dupriez_user.example:
+#        class: Dupriez\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
