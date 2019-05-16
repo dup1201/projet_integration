@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div align="center">
+        <h1>Adresse(s)</h1>
+        <table class="list">
+            <tr>
+                <th>Numéro</th>
+                <th>Boite</th>
+                <th>Rue</th>
+                <th>Code postal</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>{{ adresse.numero }}</td>
+                <td>{{ adresse.boite }}</td>
+                <td>{{ adresse.rue }}</td>
+                <td>{{ adresse.code_postal }}</td>
+                <td>{{ adresse.ville }}</td>
+                <td>{{ adresse.pays }}</td>
+
+
+                <td>&nbsp;
+                    <a class="action" href="">edit</a>&nbsp;
+                    <a class="action" href="">delete</a></td>
+            </tr>
+            <?php endforeach;?>
+        </table>
+        <br>
+        <a class="add-button" href="">Ajouter une adresse</a>
+    </div>
+
+
+{% endblock %}

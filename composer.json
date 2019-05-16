@@ -6,7 +6,8 @@
     "autoload": {
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
-            "Dupriez\\UserBundle\\": "src/Dupriez/USerBundle"
+            "Dupriez\\UserBundle\\": "src/Dupriez/UserBundle",
+            "Dupriez\\AccueilBundle\\": "src/Dupriez/AccueilBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
