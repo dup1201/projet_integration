@@ -13,16 +13,25 @@ class RegistrationType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('date de naissance')
+            ->add('dateNaissance')
             ->add('telephone');
     }
 
     public function getParent()
     {
-        return 'fos_user_registration';
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
-    public function getName()
+
+    public function getBlockPrefix()
     {
         return 'dupriez_user_registration';
     }
+
+
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+
 }
