@@ -13,7 +13,6 @@ class RegistrationType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('dateNaissance')
             ->add('telephone');
     }
 

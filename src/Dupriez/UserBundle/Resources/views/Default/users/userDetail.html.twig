@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    détail
+{% endblock %}
+
+{% block body %}
+    <h1>Détail de {{ userList.nom }} {{ userList.prenom }}</h1>
+
+    <p>Nom : {{ userList.nom }}</p>
+    <p>Prénon : {{ userList.prenom }}</p>
+    <p>Email : {{ userList.email }}</p>
+    <p>Téléphone : {{ userList.telephone }}</p>
+    <p>pseudo : {{ userList.username }}</p>
+
+ <h1>Adresse(s)</h1>
+
+{# {{ include ('Dupriez/UserBundle/Default/adresse/adresseTableau.html.twig') }}#}
+{% endblock %}

@@ -3,6 +3,7 @@
 namespace Dupriez\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Adresses
@@ -25,6 +26,8 @@ class Adresses
      * @var string
      *
      * @ORM\Column(name="rue", type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $rue;
 
@@ -32,6 +35,8 @@ class Adresses
      * @var string
      *
      * @ORM\Column(name="numero", type="string", length=10)
+     *
+     * @Assert\NotBlank()
      */
     private $numero;
 
@@ -39,6 +44,8 @@ class Adresses
      * @var string
      *
      * @ORM\Column(name="boite", type="string", length=10, nullable=true)
+     *
+     *
      */
     private $boite;
 
@@ -46,6 +53,8 @@ class Adresses
      * @var string
      *
      * @ORM\Column(name="ville", type="string", length=50)
+     *
+     * @Assert\NotBlank()
      */
     private $ville;
 
@@ -53,6 +62,8 @@ class Adresses
      * @var string
      *
      * @ORM\Column(name="code_postal", type="string", length=10)
+     *
+     * @Assert\NotBlank()
      */
     private $codePostal;
 
@@ -60,13 +71,17 @@ class Adresses
      * @var int
      *
      * @ORM\Column(name="users", type="integer")
+     *
+     *
      */
     private $users;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="pays", type="integer")
+     * @ORM\Column(name="pays", type="string", length=50)
+     *
+     * @Assert\NotBlank()
      */
     private $pays;
 

@@ -1,43 +1,16 @@
 {% extends 'base.html.twig' %}
 
+
 {% block body %}
 
     <h1>Ajout d'une adresse</h1>
-    <form name="adresseForm" action="" method="post">
-        <p>
-            <label for="rue">Rue: </label>
-            <input type="text" id="rue" name="rue" required="required"/>
-        </p>
-        <p>
-            <label for="numero">Numéro: </label>
-            <input type="text" id="numero" name="numero" required="required"/>
-        </p>
-        <p>
-            <label for="boite">Boite: </label>
-            <input type="text" id="boite" name="boite"/>
-        </p><p>
-            <label for="ville">Ville: </label>
-            <input type="text" id="ville" name="ville" required="required"/>
-        </p>
-        <p>
-            <label for="cp">Code postal: </label>
-            <input type="text" id="cp" name="cp" required="required"/>
-        </p>
-        <p>
-            <label for="pays">Pays: </label>
-            <select size="1" name="pays" id="pays">
-                <?php foreach ( $paysList as $pays):
-                {
-                    ?>
-                <option value="<?php echo $pays->getId();?>"><?php echo  $pays->getLibelle(); ?></option>
-                <?php
-                }
-                ?>
-                <?php endforeach; ?>
-            </select>
-        </p>
 
-    </form>
+    {{ form_start(adresseForm, {'attr': {'novalidate': 'novalidate'}}) }}
 
+    {{ form_widget(adresseForm) }}
+
+    <button type="submit">Envoyer</button>
+
+    {{ form_end(adresseForm) }}
 
 {% endblock %}

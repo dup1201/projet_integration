@@ -43,12 +43,7 @@ class Users extends BaseUser
      */
     private $prenom;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date_naissance", type="date")
-     */
-    private $dateNaissance;
+
 
 
 
@@ -62,7 +57,8 @@ class Users extends BaseUser
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_inscription", type="datetime")
+     * @ORM\Column(name="date_inscription", type="datetime", nullable=false)
+     * @ORM\Version
      */
     private $dateInscription;
 
@@ -126,31 +122,6 @@ class Users extends BaseUser
     {
         return $this->prenom;
     }
-
-    /**
-     * Set dateNaissance
-     *
-     * @param \DateTime $dateNaissance
-     *
-     * @return Users
-     */
-    public function setDateNaissance($dateNaissance)
-    {
-        $this->dateNaissance = $dateNaissance;
-
-        return $this;
-    }
-
-    /**
-     * Get dateNaissance
-     *
-     * @return \DateTime
-     */
-    public function getDateNaissance()
-    {
-        return $this->dateNaissance;
-    }
-
 
 
 
