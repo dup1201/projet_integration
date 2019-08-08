@@ -6,23 +6,21 @@ namespace Dupriez\UserBundle\Controller\adresseController;
 
 use Dupriez\UserBundle\Entity\Adresses;
 use Dupriez\UserBundle\Form\AdressesType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
-class AddAdresseController extends Controller
+class EditAdresseController extends Controller
 {
     /**
-     * @Route("/addadresse", name="addadresse")
+     * @Route("/editadresse/{id}", name="editadresse")
      * @param Request $request
      * @return Response
      */
-    public function addAdresseAction(Request $request)
+    public function editAdresseAction(Request $request, Adresses $adresse)
     {
-        $user = $this->getUser()->getId();
-        $adresse = new Adresses();
-        $adresse->setUsers($user);
+
 
 
         $form= $this->createForm(AdressesType::class,$adresse);
@@ -37,11 +35,11 @@ class AddAdresseController extends Controller
 
             $em->flush();
 
-            return new Response('adresse ajouté');
+            return new Response('adresse modifié');
         }
 
         $fromView =$form->createView();
 
-        return $this->render('@DupriezUser/Default/adresse/adresseForm.html.twig', array('adresseForm'=>$fromView, 'user'=>$user));
+        return $this->render('@DupriezUser/Default/adresse/adresseForm.html.twig', array('adresseForm'=>$fromView));
     }
 }

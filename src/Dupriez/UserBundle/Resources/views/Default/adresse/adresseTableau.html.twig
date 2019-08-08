@@ -14,21 +14,21 @@
                 <th>Pays</th>
                 <th>Action</th>
             </tr>
-
+            {% for adresse in adresseList %}
             <tr>
                 <td>{{ adresse.numero }}</td>
                 <td>{{ adresse.boite }}</td>
                 <td>{{ adresse.rue }}</td>
-                <td>{{ adresse.code_postal }}</td>
+                <td>{{ adresse.codePostal }}</td>
                 <td>{{ adresse.ville }}</td>
                 <td>{{ adresse.pays }}</td>
 
 
                 <td>&nbsp;
-                    <a class="action" href="">edit</a>&nbsp;
-                    <a class="action" href="">delete</a></td>
+                    <a class="action" href="{{ path('editadresse', {"id":adresse.id}) }}">edit</a>&nbsp;
+                    <a class="action" href="{{ path ('deleteadresse', {"id":adresse.id}) }}">delete</a></td>
             </tr>
-            <?php endforeach;?>
+            {% endfor %}
         </table>
         <br>
         <a class="add-button" href="{{ path('addadresse') }}">Ajouter une adresse</a>

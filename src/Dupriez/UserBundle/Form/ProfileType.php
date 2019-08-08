@@ -3,10 +3,10 @@
 
 namespace Dupriez\UserBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 
-
-class RegistrationType extends AbstractType
+class ProfileType extends AbstractType
 {
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
     {
@@ -18,12 +18,12 @@ class RegistrationType extends AbstractType
 
     public function getParent()
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
     public function getBlockPrefix()
     {
-        return 'dupriez_user_registration';
+        return 'dupriez_user_profile';
     }
 
 
@@ -31,6 +31,5 @@ class RegistrationType extends AbstractType
     {
         return $this->getBlockPrefix();
     }
-
 
 }

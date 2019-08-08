@@ -3,7 +3,6 @@
 namespace Dupriez\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,8 +18,7 @@ class AdressesType extends AbstractType
                 ->add('numero')
                 ->add('boite')
                 ->add('ville')
-                ->add('codePostal')
-                ->add('users')
+                ->add('code_postal')
                 ->add('pays',CountryType::class, [
                     'placeholder'=>'Veuillez sélectionnez votre pays'
                 ]);

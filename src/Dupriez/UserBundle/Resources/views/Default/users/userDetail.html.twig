@@ -12,7 +12,6 @@
     <p>Téléphone : {{ userList.telephone }}</p>
     <p>pseudo : {{ userList.username }}</p>
 
- <h1>Adresse(s)</h1>
 
-{# {{ include ('Dupriez/UserBundle/Default/adresse/adresseTableau.html.twig') }}#}
+    <a href="{{ path ('adresse', {"users":userList.id}) }}">voir adresse(s)</a>
 {% endblock %}
