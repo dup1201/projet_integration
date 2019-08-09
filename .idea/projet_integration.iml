@@ -4,6 +4,7 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/src/AppBundle" isTestSource="false" packagePrefix="AppBundle\" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Dupriez/ProductBundle" isTestSource="false" packagePrefix="Dupriez\ProductBundle\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Dupriez/UserBundle" isTestSource="false" packagePrefix="Dupriez\UserBundle\" />
       <sourceFolder url="file://$MODULE_DIR$/src/Dupriez/AccueilBundle" isTestSource="false" packagePrefix="Dupriez\AccueilBundle\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />

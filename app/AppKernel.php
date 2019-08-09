@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new Dupriez\UserBundle\DupriezUserBundle(),
             new Dupriez\AccueilBundle\DupriezAccueilBundle(),
+            new Dupriez\ProductBundle\DupriezProductBundle(),
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

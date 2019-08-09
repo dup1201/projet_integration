@@ -7,7 +7,8 @@
         "psr-4": {
             "AppBundle\\": "src/AppBundle",
             "Dupriez\\UserBundle\\": "src/Dupriez/UserBundle",
-            "Dupriez\\AccueilBundle\\": "src/Dupriez/AccueilBundle"
+            "Dupriez\\AccueilBundle\\": "src/Dupriez/AccueilBundle",
+            "Dupriez\\ProductBundle\\": "src/Dupriez/ProductBundle"
         },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
