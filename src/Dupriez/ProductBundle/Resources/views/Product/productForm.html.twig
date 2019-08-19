@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>Ajout ou modification d'un produit</h1>
+
+    {{ form_start(productForm, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_widget(productForm) }}
+
+    <button type="submit">Envoyer</button>
+
+    {{ form_end(productForm) }}
+
+{% endblock %}

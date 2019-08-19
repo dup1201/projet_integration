@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h1>Liste des produits</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in productList %}
+            <tr>
+                <td>{{ product.prix }}€</td>
+                <td>{{  product.quantite }}</td>
+                <td><img alt="livres" src="{{ asset('uploads/images/' ~ product.image) }}" height="200px" width="200px"></td>
+                <td><a href="">détail</a>
+                    <a href="{{ path('editproduct', {"id":product.id}) }}">modifier</a>
+                    <a href="">supprimer</a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -3,12 +3,16 @@
 namespace Dupriez\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Products
  *
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="Dupriez\ProductBundle\Repository\ProductsRepository")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"products"="Products", "livres"="Livres", "pc_portables"="PC_portable", "telephone"="telephone", "vetements"="Vetements"})
  */
 class Products
 {
@@ -46,13 +50,15 @@ class Products
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
+     * @Assert\File(mimeTypes={"image/jpeg", "images/png"})
      */
     private $image;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_ajout", type="datetime")
+     * @ORM\Column(name="date_ajout", type="datetime", nullable=false)
+     * @ORM\Version
      */
     private $dateAjout;
 

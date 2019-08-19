@@ -33,3 +33,13 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    product.image_uploader:
+        class: Dupriez\ProductBundle\ImageUpload
+        arguments: ['%images_directory%']
+
+    product.doctrine_image_listener:
+        class: Dupriez\ProductBundle\EventListener\UploadImageListener
+        arguments: ['@product.image_uploader']
+        tags:
+           - { name: doctrine.event_listener, event: prePersist }
+           - { name: doctrine.event_listener, event: preUpdate }
