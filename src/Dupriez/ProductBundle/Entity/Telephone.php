@@ -5,12 +5,12 @@ namespace Dupriez\ProductBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * telephone
+ * Telephone
  *
  * @ORM\Table(name="telephone")
  * @ORM\Entity(repositoryClass="Dupriez\ProductBundle\Repository\telephoneRepository")
  */
-class telephone extends Products
+class Telephone
 {
     /**
      * @var int
@@ -59,16 +59,16 @@ class telephone extends Products
     /**
      * @var string
      *
-     * @ORM\Column(name="dimenssion", type="string", length=15)
+     * @ORM\Column(name="dimenssion", type="string", length=25)
      */
     private $dimenssion;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="product", type="integer")
+     * @ORM\ManyToOne(targetEntity="Products", cascade={"persist","remove"})
      */
-    private $product;
+    private $products;
 
 
     /**
@@ -226,27 +226,27 @@ class telephone extends Products
     }
 
     /**
-     * Set product
+     * Set products
      *
      * @param integer $product
      *
      * @return telephone
      */
-    public function setProduct($product)
+    public function setProducts($products)
     {
-        $this->product = $product;
+        $this->products = $products;
 
         return $this;
     }
 
     /**
-     * Get product
+     * Get products
      *
      * @return int
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 }
 

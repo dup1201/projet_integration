@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+    <h1>Ajout ou modification d'un pc</h1>
+
+    {{ form_start(PcForm, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    {{ form_widget(PcForm) }}
+
+    <button type="submit">Envoyer</button>
+
+    {{ form_end(PcForm) }}
+
+{% endblock %}

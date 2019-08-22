@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="p_c_portable")
  * @ORM\Entity(repositoryClass="Dupriez\ProductBundle\Repository\PC_portableRepository")
  */
-class PC_portable extends Products
+class PC_portable
 {
     /**
      * @var int
@@ -73,9 +73,9 @@ class PC_portable extends Products
     /**
      * @var int
      *
-     * @ORM\Column(name="product", type="integer")
+     * @ORM\ManyToOne(targetEntity="Products", cascade={"persist","remove"})
      */
-    private $product;
+    private $products;
 
 
     /**
@@ -257,27 +257,27 @@ class PC_portable extends Products
     }
 
     /**
-     * Set product
+     * Set products
      *
-     * @param integer $product
+     * @param integer $products
      *
      * @return PC_portable
      */
-    public function setProduct($product)
+    public function setProducts($products)
     {
-        $this->product = $product;
+        $this->products = $products;
 
         return $this;
     }
 
     /**
-     * Get product
+     * Get products
      *
      * @return int
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 }
 

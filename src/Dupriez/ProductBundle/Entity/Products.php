@@ -10,11 +10,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="products")
  * @ORM\Entity(repositoryClass="Dupriez\ProductBundle\Repository\ProductsRepository")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"products"="Products", "livres"="Livres", "pc_portables"="PC_portable", "telephone"="telephone", "vetements"="Vetements"})
+
  */
-class Products
+ class Products
 {
     /**
      * @var int
@@ -22,13 +20,14 @@ class Products
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="prix", type="decimal", precision=4, scale=2)
+     * @ORM\Column(name="prix", type="decimal", precision=10, scale=2)
      */
     private $prix;
 
@@ -192,5 +191,6 @@ class Products
     {
         return $this->dateAjout;
     }
+
 }
 

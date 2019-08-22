@@ -2,6 +2,12 @@
 
 {% block body %}
 
+    <h2>>Ajouter un produit </h2>
+    <h3><a href="{{ path('addlivre')}}">Ajouter un livre</a>&nbsp &nbsp
+        <a href="{{ path('addpc')}}">Ajouter un pc portable</a>&nbsp &nbsp
+        <a href="{{ path('addtelephone')}}">Ajouter un telephone</a>&nbsp &nbsp
+        <a href="{{ path('addvetement')}}">Ajouter un vetement</a>
+    </h3>
     <h1>Liste des produits</h1>
     <table>
         <thead>
@@ -20,7 +26,7 @@
                 <td><img alt="livres" src="{{ asset('uploads/images/' ~ product.image) }}" height="200px" width="200px"></td>
                 <td><a href="">détail</a>
                     <a href="{{ path('editproduct', {"id":product.id}) }}">modifier</a>
-                    <a href="">supprimer</a> </td>
+                    <a href="{{ path ('deleteproduct', {"id":product.id}) }}">supprimer</a> </td>
             </tr>
         {% endfor %}
         </tbody>

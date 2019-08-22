@@ -3,6 +3,7 @@
 namespace Dupriez\ProductBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Livres
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="livres")
  * @ORM\Entity(repositoryClass="Dupriez\ProductBundle\Repository\LivresRepository")
  */
-class Livres extends Products
+class Livres
 {
     /**
      * @var int
@@ -18,6 +19,7 @@ class Livres extends Products
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @
      */
     private $id;
 
@@ -73,16 +75,17 @@ class Livres extends Products
     /**
      * @var string
      *
-     * @ORM\Column(name="resume", type="string", length=400, nullable=true)
+     * @ORM\Column(name="resume", type="text", length=400, nullable=true)
      */
     private $resume;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="product", type="integer")
+     * @ORM\ManyToOne(targetEntity="Products", cascade={"persist","remove"})
+
      */
-    private $product;
+    private $products;
 
 
     /**
@@ -288,27 +291,27 @@ class Livres extends Products
     }
 
     /**
-     * Set product
+     * Set products
      *
-     * @param integer $product
+     * @param integer $products
      *
      * @return Livres
      */
-    public function setProduct($product)
+    public function setProducts($products)
     {
-        $this->product = $product;
+        $this->products = $products;
 
         return $this;
     }
 
     /**
-     * Get product
+     * Get products
      *
      * @return int
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->product;
+        return $this->products;
     }
 }
 

@@ -25,9 +25,7 @@ class ProductsType extends AbstractType
                 ]])
                 ->add('image', FileType::class, array('label'=>'image(JPG, PNG)','data_class'=>null));
 
-    }/**
-     * {@inheritdoc}
-     */
+    }
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -35,9 +33,7 @@ class ProductsType extends AbstractType
         ));
     }
 
-    /**
-     * {@inheritdoc}
-     */
+
     public function getBlockPrefix()
     {
         return 'dupriez_productbundle_products';
