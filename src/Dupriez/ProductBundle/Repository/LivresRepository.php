@@ -10,4 +10,13 @@ namespace Dupriez\ProductBundle\Repository;
  */
 class LivresRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getLivreWithProduct()
+    {
+        $qb =$this->createQueryBuilder('l')
+            ->Join('l.products','products')
+            ->addSelect('products');
+
+        return $qb->getQuery()->getResult();
+    }
+
 }

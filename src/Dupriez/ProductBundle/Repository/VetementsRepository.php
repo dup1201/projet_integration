@@ -10,4 +10,12 @@ namespace Dupriez\ProductBundle\Repository;
  */
 class VetementsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getVetementWithProduct()
+    {
+        $qb =$this->createQueryBuilder('v')
+            ->Join('v.products','products')
+            ->addSelect('products');
+
+        return $qb->getQuery()->getResult();
+    }
 }

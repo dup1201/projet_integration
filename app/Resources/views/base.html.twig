@@ -3,8 +3,13 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="widht=device-width, initial-scale=1">
         <title>{% block title %}shop!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
@@ -13,3 +18,9 @@
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+<style>
+    body
+    {
+        padding-top: 50px;
+    }
+</style>

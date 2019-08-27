@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+    <h1>Vetements</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Prix</th>
+            <th>Categorie</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for vetement in vetementList %}
+            <tr>
+                <td><img alt="pc" src="{{ asset('uploads/images/' ~ vetement.products.image) }}" height="200px" width="200px"></td>
+                <td>{{ vetement.products.prix }}€</td>
+                <td>{{  vetement.categorie }}</td>
+                <td><a href="">détail</a>
+                    <a href="{{ path('editvetement', {"id":vetement.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{{ path ('deletevetement', {"id":vetement.id}) }}"><span class="glyphicon glyphicon-trash"></span></a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

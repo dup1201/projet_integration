@@ -3,6 +3,7 @@
 namespace Dupriez\ProductBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,14 @@ class VetementsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('categorie')
-                ->add('taille')
+                ->add('taille', ChoiceType::class,['choices'=> [
+                    'S' => 'S',
+                    'M' =>'M',
+                    'L' => 'L',
+                    'XL' => 'XL',
+                    'XXL' => 'XXL',
+                    'XXXL' => 'XXXL',
+                ]])
                 ->add('manche')
                 ->add('couleur')
                 ->add('products', ProductsType::class);

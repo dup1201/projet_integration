@@ -4,14 +4,16 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Détail de {{ userList.nom }} {{ userList.prenom }}</h1>
+    <div class="container">
+      <h1>Détails de {{ userList.nom }} {{ userList.prenom }}</h1>
 
-    <p>Nom : {{ userList.nom }}</p>
-    <p>Prénon : {{ userList.prenom }}</p>
-    <p>Email : {{ userList.email }}</p>
-    <p>Téléphone : {{ userList.telephone }}</p>
-    <p>pseudo : {{ userList.username }}</p>
+      <p>Nom : {{ userList.nom }}</p>
+      <p>Prénon : {{ userList.prenom }}</p>
+      <p>Email : {{ userList.email }}</p>
+      <p>Téléphone : {{ userList.telephone }}</p>
+      <p>pseudo : {{ userList.username }}</p>
 
 
-    <a href="{{ path ('adresse', {"users":userList.id}) }}">voir adresse(s)</a>
+       <a href="{{ path ('adresse', {"users":userList.id}) }}">voir adresse(s)</a>
+    </div>
 {% endblock %}

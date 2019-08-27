@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <div class="container">
     <h1>Liste des utilisateurs</h1>
-    <table>
+    <table class="table">
         <thead>
         <tr>
             <th>Nom</th>
@@ -17,10 +17,11 @@
                 <td>{{ users.nom }}</td>
                 <td>{{ users.prenom }}</td>
                 <td><a href="{{ path ('userDetail', {"id":users.id}) }}">détail</a>
-                    <a href="">modifier</a>
-                    <a href="">supprimer</a> </td>
+                    <a href="{{ path ('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href=""><span class="glyphicon glyphicon-trash"></span></a> </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    </div>
 {% endblock %}

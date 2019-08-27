@@ -2,9 +2,9 @@
 
 {% block body %}
 
-    <div align="center">
+    <div align="center" class="container">
         <h1>Adresse(s)</h1>
-        <table class="list">
+        <table class="table">
             <tr>
                 <th>Numéro</th>
                 <th>Boite</th>
@@ -25,13 +25,13 @@
 
 
                 <td>&nbsp;
-                    <a class="action" href="{{ path('editadresse', {"id":adresse.id}) }}">edit</a>&nbsp;
-                    <a class="action" href="{{ path ('deleteadresse', {"id":adresse.id}) }}">delete</a></td>
+                    <a href="{{ path('editadresse', {"id":adresse.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;
+                    <a href="{{ path ('deleteadresse', {"id":adresse.id}) }}"><span class="glyphicon glyphicon-trash"></span></a></td>
             </tr>
             {% endfor %}
         </table>
         <br>
-        <a class="add-button" href="{{ path('addadresse') }}">Ajouter une adresse</a>
+        <a href="{{ path('addadresse') }}"><span class="glyphicon glyphicon-plus"></span>  Ajouter une adresse</a>
     </div>
 
 

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+    <h1>Telephone</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Prix</th>
+            <th>Marque</th>
+            <th>Modèle</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for telephone in telephoneList %}
+            <tr>
+                <td><img alt="pc" src="{{ asset('uploads/images/' ~ telephone.products.image) }}" height="200px" width="200px"></td>
+                <td>{{ telephone.products.prix }}€</td>
+                <td>{{  telephone.marque }}</td>
+                <td>{{ telephone.modele }}</td>
+                <td><a href="">détail</a>
+                    <a href="{{ path('edittelephone', {"id":telephone.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="{{ path ('deletetelephone', {"id":telephone.id}) }}"><span class="glyphicon glyphicon-trash"></span></a> </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

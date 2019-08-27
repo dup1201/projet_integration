@@ -83,6 +83,7 @@ class Livres
      * @var int
      *
      * @ORM\ManyToOne(targetEntity="Products", cascade={"persist","remove"})
+     *
 
      */
     private $products;
@@ -313,5 +314,7 @@ class Livres
     {
         return $this->products;
     }
+
+
 }
 

@@ -10,4 +10,12 @@ namespace Dupriez\ProductBundle\Repository;
  */
 class PC_portableRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getPcWithProduct()
+    {
+        $qb =$this->createQueryBuilder('p')
+            ->Join('p.products','products')
+            ->addSelect('products');
+
+        return $qb->getQuery()->getResult();
+    }
 }

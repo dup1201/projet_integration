@@ -3,6 +3,7 @@
 namespace Dupriez\ProductBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,7 +15,12 @@ class LivresType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('titre')
-                ->add('categorie')
+                ->add('categorie',ChoiceType::class, ['choices'=> [
+                    'enfant' => 'enfant',
+                    'BD' =>'BD',
+                    'roman' => 'roman',
+                    'informatique' => 'informatique'
+                ]])
                 ->add('nbPages')
                 ->add('isbn')
                 ->add('editeur')

@@ -10,4 +10,12 @@ namespace Dupriez\ProductBundle\Repository;
  */
 class telephoneRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getTelephoneWithProduct()
+    {
+        $qb =$this->createQueryBuilder('t')
+            ->Join('t.products','products')
+            ->addSelect('products');
+
+        return $qb->getQuery()->getResult();
+    }
 }
