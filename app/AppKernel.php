@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new Dupriez\UserBundle\DupriezUserBundle(),
             new Dupriez\AccueilBundle\DupriezAccueilBundle(),
             new Dupriez\ProductBundle\DupriezProductBundle(),
+            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new Dupriez\CommandeBundle\DupriezCommandeBundle(),
         );
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

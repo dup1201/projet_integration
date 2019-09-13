@@ -1,30 +1,28 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
- <div class="container">
+    <div class="container">
 
-    <h1>Livres</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Prix</th>
-            <th>Titre</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for livre in livreList %}
-            <tr>
-                <td><img alt="livres" src="{{ asset('uploads/images/' ~ livre.products.image) }}" height="200px" width="200px"></td>
-                <td>{{ livre.products.prix }}€</td>
-                <td>{{  livre.titre }}</td>
-                <td><a href="">détail</a>
-                    <a href="{{ path('editlivre', {"id":livre.id}) }}"><span class="glyphicon glyphicon-edit"></span> </a>
-                    <a href="{{ path ('deletelivre', {"id":livre.id}) }}"><span class="glyphicon glyphicon-trash"></span> </a> </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
- </div>
+        <h1>Livre</h1>
+
+        <div class="row">
+            {% for livre in livreList %}
+                <div class="col-6">
+                    <div class="card">
+                        <div class="media">
+                            <img alt="livre" src="{{ asset('uploads/images/' ~ livre.products.image) }}" style="height: 200px">
+                            <div class="media-body container" >
+                                <h5 class="card-title">
+                                    {{ livre.products.prix }}€
+                                </h5>
+                                <a class="btn btn-primary" href="{{ path('addpanier', {'id' :livre.products.id}) }}">
+                                    Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
 {% endblock %}

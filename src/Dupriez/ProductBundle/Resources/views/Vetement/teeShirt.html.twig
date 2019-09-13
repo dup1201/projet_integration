@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Tee-shirt</h1>
+
+        <div class="row">
+            {% for teeShirt in teeShirtList %}
+                <div class="col-6">
+                    <div class="card">
+                        <div class="media">
+                            <img alt="teeShirt" src="{{ asset('uploads/images/' ~ teeShirt.products.image) }}" style="height: 200px">
+                            <div class="media-body container" >
+                                <h5 class="card-title">
+                                    {{ teeShirt.products.prix }}€
+                                </h5>
+                                <a class="btn btn-primary" href="{{ path('addpanier', {'id' :teeShirt.products.id}) }}">
+                                    Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+            <br>
+        <div >
+            <ul class="pagination pagination-lg">
+            {% for i in 1..nbDePage %}
+              <li class="page-item "></li> <a class="page-link" href="{{ path('teeshirt', {page: i}) }}">{{ i }}</a>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

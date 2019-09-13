@@ -10,9 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class TelephoneListController extends Controller
 {
     /**
-     * @Route("/telephone", name="telephone")
+     * @Route("/telephonegestion", name="telephonegestion")
      */
-    public function telephoneListAction()
+    public function telephoneListGestionAction()
     {
         $telephoneList = $this->getDoctrine()
             ->getRepository('DupriezProductBundle:Telephone')
@@ -21,4 +21,15 @@ class TelephoneListController extends Controller
         return $this->render('@DupriezProduct/Telephone/telephone.html.twig', array('telephoneList'=>$telephoneList));
     }
 
+    /**
+     * @Route("/telephone", name="telephone")
+     */
+    public function telephoneListAction()
+    {
+        $telephoneList = $this->getDoctrine()
+            ->getRepository('DupriezProductBundle:Telephone')
+            ->getTelephoneWithProduct();
+
+        return $this->render('@DupriezProduct/Telephone/telephoneClient.html.twig', array('telephoneList'=>$telephoneList));
+    }
 }

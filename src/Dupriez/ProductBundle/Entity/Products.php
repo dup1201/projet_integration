@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -192,5 +192,9 @@ use Symfony\Component\Validator\Constraints as Assert;
         return $this->dateAjout;
     }
 
+     public function __toString()
+     {
+         return $this->getCategorie();
+    }
 }
 

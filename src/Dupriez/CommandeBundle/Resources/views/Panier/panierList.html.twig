@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>panier</h1>
+{{ dump(panierList) }}
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Prix</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for panier in panierList %}
+                <tr>
+                    <td>
+                        <img alt="teeShirt" src="{{ asset('uploads/images/' ~ panier.products.image) }}" height="200px" width="200px">
+                    </td>
+                    <td>{{ panier.products.prix }}€</td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+        <label for="adresseLiv">Adresse de livraison :</label><select name="adresseLiv" id="adresseLiv"></select>
+        <label for="adresseFact">Adresse de facturation :</label><select name="adresseFact" id="adresseFact"></select><br><br>
+
+      <a href="">Passer commande</a>
+    </div>
+{% endblock %}

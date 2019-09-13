@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProductListController extends Controller
 {
     /**
-     * @Route("/products", name="products")
+     * @Route("/productsgestion", name="productsgestion")
      */
     public function productListAction()
     {
@@ -19,5 +19,17 @@ class ProductListController extends Controller
             ->findAll();
 
         return $this->render('@DupriezProduct/Product/product.html.twig', array('productList'=>$productList));
+    }
+
+    /**
+     * @Route("/products", name="products")
+     */
+    public function productListUserAction()
+    {
+        $productList= $this->getDoctrine()
+            ->getRepository('DupriezProductBundle:Products')
+            ->findAll();
+
+        return $this->render('@DupriezProduct/Product/productList.html.twig', array('productList'=>$productList));
     }
 }

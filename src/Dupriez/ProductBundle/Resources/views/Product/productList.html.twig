@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>produits</h1>
+            <a href="{{ path('livre') }}"><img src="{{'image/livres.jpg'}}" alt="livre"></a>&nbsp &nbsp
+            <a href="{{ path('pc') }}"><img src="{{ 'image/pc.jpg' }}" alt="PC portable"></a>&nbsp &nbsp
+            <a href="{{ path('telephone') }}"><img src="{{ 'image/telephone.png' }}" alt="telephone"></a>&nbsp &nbsp
+            <a href="{{ path('vetementcategorie') }}"><img src="{{ 'image/vetement.png' }}" alt="vetement"></a>
+    </div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Pull</h1>
+
+        <div class="row">
+            {% for pull in pullList %}
+                <div class="col-6">
+                    <div class="card">
+                        <div class="media">
+                            <img alt="pull" src="{{ asset('uploads/images/' ~ pull.products.image) }}" style="height: 200px">
+                            <div class="media-body container" >
+                                <h5 class="card-title">
+                                    {{ pull.products.prix }}€
+                                </h5>
+                                <a class="btn btn-primary" href="{{ path('addpanier', {'id' :pull.products.id}) }}">
+                                    Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

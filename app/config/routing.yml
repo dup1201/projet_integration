@@ -18,6 +18,11 @@ dupriez_user:
     type:     annotation
     prefix:   /
 
+dupriez_commande:
+    resource: "@DupriezCommandeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

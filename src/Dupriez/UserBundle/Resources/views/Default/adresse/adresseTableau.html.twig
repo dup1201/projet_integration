@@ -25,13 +25,13 @@
 
 
                 <td>&nbsp;
-                    <a href="{{ path('editadresse', {"id":adresse.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>&nbsp;
-                    <a href="{{ path ('deleteadresse', {"id":adresse.id}) }}"><span class="glyphicon glyphicon-trash"></span></a></td>
+                    <a href="{{ path('editadresse', {"id":adresse.id}) }}"><span class="fas fa-edit black"></span></a>&nbsp;
+                    <a href="{{ path ('deleteadresse', {"id":adresse.id}) }}"><span class="fas fa-trash black"></span></a></td>
             </tr>
             {% endfor %}
         </table>
         <br>
-        <a href="{{ path('addadresse') }}"><span class="glyphicon glyphicon-plus"></span>  Ajouter une adresse</a>
+        <a class="btn btn-primary" href="{{ path('addadresse') }}"><span class="fas fa-plus"></span>  Ajouter une adresse</a>
     </div>
 
 

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Telephone</h1>
+
+        <div class="row">
+            {% for telephone in telephoneList %}
+                <div class="col-6">
+                    <div class="card">
+                        <div class="media">
+                            <img alt="telephone" src="{{ asset('uploads/images/' ~ telephone.products.image) }}" style="height: 200px">
+                            <div class="media-body container" >
+                                <h5 class="card-title">
+                                    {{ telephone.products.prix }}€
+                                </h5>
+                                <a class="btn btn-primary" href="{{ path('addpanier', {'id' :telephone.products.id}) }}">
+                                    Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

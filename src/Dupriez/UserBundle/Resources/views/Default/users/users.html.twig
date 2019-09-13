@@ -16,9 +16,9 @@
             <tr>
                 <td>{{ users.nom }}</td>
                 <td>{{ users.prenom }}</td>
-                <td><a href="{{ path ('userDetail', {"id":users.id}) }}">détail</a>
-                    <a href="{{ path ('fos_user_profile_edit') }}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-trash"></span></a> </td>
+                <td><a class="black" href="{{ path ('userDetail', {"id":users.id}) }}">détail</a>
+                    <a href="{{ path ('fos_user_profile_edit') }}"><span class="fas fa-edit black"></span></a>
+                    <a href=""><span class="fas fa-trash black"></span></a> </td>
             </tr>
         {% endfor %}
         </tbody>

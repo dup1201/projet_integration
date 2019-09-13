@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <div class="container">
+
+
+        {{ form_start(panierForm, {'attr': {'novalidate': 'novalidate'}}) }}
+
+        {{ form_widget(panierForm) }}
+
+        <button type="submit">Envoyer</button>
+
+        {{ form_end(panierForm) }}
+    </div>
+{% endblock %}

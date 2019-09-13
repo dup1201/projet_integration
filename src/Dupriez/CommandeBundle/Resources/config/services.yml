@@ -1,0 +1,4 @@
+services:
+#    dupriez_commande.example:
+#        class: Dupriez\CommandeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

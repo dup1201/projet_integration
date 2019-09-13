@@ -1,0 +1,21 @@
+body
+{
+    padding-top: 60px;
+
+}
+
+tr:nth-child(even)
+{
+    background-color :#6495ED;
+}
+
+.black
+{
+    color: black;
+}
+
+.media-body
+{
+    padding-top: 50px;
+    text-align: center;
+}

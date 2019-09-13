@@ -21,7 +21,8 @@ class ProductsType extends AbstractType
                     'livres' => 'livres',
                     'PC portables' =>'p_c_portable',
                     'Telephone' => 'telephone',
-                    'Vetements' => 'vetements'
+                    'Pull' => 'Pull',
+                    'TeeShirt'=>'TeeShirt'
                 ]])
                 ->add('image', FileType::class, array('label'=>'image(JPG, PNG)','data_class'=>null));
 

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Vetements</h1>
+        <a href="{{ path('pull') }}"><img src="{{ 'image/pull.png' }}" alt="pull"></a>&nbsp &nbsp
+        <a href="{{ path('teeshirt') }}"><img src="{{ 'image/teeshirt.png' }}" alt="tee-shirt"></a>
+    </div>
+{% endblock %}

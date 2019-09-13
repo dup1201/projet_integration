@@ -21,9 +21,9 @@
                 <td>{{ telephone.products.prix }}€</td>
                 <td>{{  telephone.marque }}</td>
                 <td>{{ telephone.modele }}</td>
-                <td><a href="">détail</a>
-                    <a href="{{ path('edittelephone', {"id":telephone.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href="{{ path ('deletetelephone', {"id":telephone.id}) }}"><span class="glyphicon glyphicon-trash"></span></a> </td>
+                <td>
+                    <a href="{{ path('edittelephone', {"id":telephone.id}) }}"><span class="fas fa-edit black"></span></a>
+                    <a href="{{ path ('deletetelephone', {"id":telephone.id}) }}"><span class="fas fa-trash black"></span></a> </td>
             </tr>
         {% endfor %}
         </tbody>

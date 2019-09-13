@@ -14,7 +14,9 @@ class VetementsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('categorie')
+        $builder->add('categorie', ChoiceType::class,['choices'=> [
+                        'tee-shirt'=>'tee-shirt',
+                        'pull'=>'pull']])
                 ->add('taille', ChoiceType::class,['choices'=> [
                     'S' => 'S',
                     'M' =>'M',

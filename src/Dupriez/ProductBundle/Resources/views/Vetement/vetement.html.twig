@@ -19,9 +19,9 @@
                 <td><img alt="pc" src="{{ asset('uploads/images/' ~ vetement.products.image) }}" height="200px" width="200px"></td>
                 <td>{{ vetement.products.prix }}€</td>
                 <td>{{  vetement.categorie }}</td>
-                <td><a href="">détail</a>
-                    <a href="{{ path('editvetement', {"id":vetement.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href="{{ path ('deletevetement', {"id":vetement.id}) }}"><span class="glyphicon glyphicon-trash"></span></a> </td>
+                <td>
+                    <a href="{{ path('editvetement', {"id":vetement.id}) }}"><span class="fas fa-edit black"></span></a>
+                    <a href="{{ path ('deletevetement', {"id":vetement.id}) }}"><span class="fas fa-trash black"></span></a> </td>
             </tr>
         {% endfor %}
         </tbody>

@@ -3,30 +3,25 @@
 {% block body %}
     <div class="container">
 
-    <h1>Pc portable</h1>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Prix</th>
-            <th>Marque</th>
-            <th>Modèle</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for pc in pcList %}
-            <tr>
-                <td><img alt="pc" src="{{ asset('uploads/images/' ~ pc.products.image) }}" height="200px" width="200px"></td>
-                <td>{{ pc.products.prix }}€</td>
-                <td>{{  pc.marque }}</td>
-                <td>{{ pc.modele }}</td>
-                <td><a href="">détail</a>
-                    <a href="{{ path('editpc', {"id":pc.id}) }}"><span class="glyphicon glyphicon-edit"></span></a>
-                    <a href="{{ path ('deletepc', {"id":pc.id}) }}"><span class="glyphicon glyphicon-trash"></span></a> </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <h1>Ordinateur Portable</h1>
+
+        <div class="row">
+            {% for pc in pcList %}
+                <div class="col-6">
+                    <div class="card">
+                        <div class="media">
+                            <img alt="pc" src="{{ asset('uploads/images/' ~ pc.products.image) }}" style="height: 200px">
+                            <div class="media-body container" >
+                                <h5 class="card-title">
+                                    {{ pc.products.prix }}€
+                                </h5>
+                                <a class="btn btn-primary" href="{{ path('addpanier', {'id' :pc.products.id}) }}">
+                                    Ajouter au panier</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
