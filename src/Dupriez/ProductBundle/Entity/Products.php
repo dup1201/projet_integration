@@ -22,7 +22,7 @@ use Symfony\Component\Validator\Constraints as Assert;
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string

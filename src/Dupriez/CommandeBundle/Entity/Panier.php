@@ -27,25 +27,26 @@ class Panier
      *
      * @ORM\ManyToOne(targetEntity="Dupriez\UserBundle\Entity\Users")
      */
-    private $users;
+    private $user;
 
     /**
-     * @var \stdClass
+     * @var array
      *
-     * @ORM\OneToMany(targetEntity="Dupriez\ProductBundle\Entity\Products", mappedBy="panier")
-     * @Assert\NotNull
-     * @ORM\Column(name="product_id", type="integer")
+     * @ORM\OneToMany(targetEntity="Dupriez\CommandeBundle\Entity\Contenu", mappedBy="panier", fetch="EAGER")
      */
-    private $products;
+    private $contenu;
 
     /**
-     * @var int
+     * @var \integer
      *
-     * @ORM\Column(name="quantite", type="integer")
+     * @ORM\Column(name="etat")
      */
-    private $quantite;
+    private $etat;
 
-
+    public function __construct()
+    {
+        $this->contenu = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -60,13 +61,13 @@ class Panier
     /**
      * Set users
      *
-     * @param \stdClass $users
+     * @param \stdClass $user
      *
      * @return Panier
      */
-    public function setUsers($users)
+    public function setUser($user)
     {
-        $this->users = $users;
+        $this->user = $user;
 
         return $this;
     }
@@ -76,59 +77,42 @@ class Panier
      *
      * @return \stdClass
      */
-    public function getUsers()
+    public function getUser()
     {
-        return $this->users;
+        return $this->user;
     }
 
     /**
-     * Set products
-     *
-     * @param \stdClass $products
-     *
-     * @return Panier
+     * @return array
      */
-    public function setProducts($products)
+    public function getContenu()
     {
-        $this->products = $products;
-
-        return $this;
+        return $this->contenu;
     }
 
     /**
-     * Get products
-     *
-     * @return \stdClass
+     * @param array $contenu
      */
-    public function getProducts()
+    public function setContenu($contenu)
     {
-        return $this->products;
+        $this->contenu = $contenu;
     }
 
     /**
-     * Set quantite
-     *
-     * @param integer $quantite
-     *
-     * @return Panier
-     */
-    public function setQuantite($quantite)
-    {
-        $this->quantite = $quantite;
-
-        return $this;
-    }
-
-    /**
-     * Get quantite
-     *
      * @return int
      */
-    public function getQuantite()
+    public function getEtat()
     {
-        return $this->quantite;
+        return $this->etat;
     }
 
+    /**
+     * @param int $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
+    }
 
 }
 

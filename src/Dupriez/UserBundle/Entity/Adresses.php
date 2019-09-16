@@ -257,6 +257,16 @@ class Adresses
         $this->pays = $pays;
     }
 
+    public function _toString()
+    {
+        return "{$this->getNumero()} {$this->getBoite()} {$this->getRue()} {$this->getCodePostal()}{$this->getVille()} {$this->getPays()}";
+
+    }
+
+    public function getAdresse()
+    {
+        return "{$this->getNumero()} {$this->getBoite()} {$this->getRue()} {$this->getCodePostal()}{$this->getVille()} {$this->getPays()}";
+    }
 
 }
 

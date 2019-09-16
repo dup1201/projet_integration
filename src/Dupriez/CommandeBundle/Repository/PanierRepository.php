@@ -10,13 +10,16 @@ namespace Dupriez\CommandeBundle\Repository;
  */
 class PanierRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getProductViewPanier()
+    public function getPanierUser($user)
     {
-        $qb=$this
+        $qb = $this
             ->createQueryBuilder('p')
-            ->join('p.products','product_id')
-            ->addSelect('products');
+            ->where('p.user = :user and p.etat = :etat')
+            ->setParameter('user', $user)
+            ->setParameter('etat', 0)
+            ->select('p');
 
         return $qb->getQuery()->getResult();
     }
+
 }

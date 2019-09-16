@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% set  adresseLiv ="adresseLiv" %}
+    {{ dump(adresseLiv) }}
+    <div class="container">
+
+        <h1>panier</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contenu in panierList.contenu %}
+
+                <tr>
+                    <td>
+                        <img alt="{{ contenu.product.categorie }}" src="{{ asset('uploads/images/' ~ contenu.product.image) }}" height="200px" width="200px">
+                    </td>
+                    <td>{{ contenu.product.prix }}€</td>
+                    <td>{{ contenu.quantite }}</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+
+        <label for="adresseLiv">Adresse de livraison : </label><select name="adresseLiv" id="adresseLiv">
+            {% for adresse in adresseList %}
+                <option value="{{ adresse.id }}">{{ adresse }}</option>
+            {% endfor %}
+        </select><br><br>
+        <label for="adresseFact">Adresse de facturation
+            : </label><select name="adresseFact" id="adresseFact">
+            {% for adresse in adresseList %}
+                <option value="{{ adresse.id }}">{{ adresse }}</option>
+            {% endfor %}
+        </select><br><br>
+
+    </div>
+{% endblock %}
+
+<label for="adresseLiv">Adresse de livraison : </label><select name="adresseLiv" id="adresseLiv">
+    {% for adresse in adresseList %}
+        <option value="{{ adresse.id }}">{{ adresse }}</option>
+    {% endfor %}
+</select><br><br>
+<label for="adresseFact">Adresse de facturation
+    : </label><select name="adresseFact" id="adresseFact">
+    {% for adresse in adresseList %}
+        <option value="{{ adresse.id }}">{{ adresse }}</option>
+    {% endfor %}
+</select><br><br>

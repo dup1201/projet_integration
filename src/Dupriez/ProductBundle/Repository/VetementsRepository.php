@@ -10,14 +10,7 @@ namespace Dupriez\ProductBundle\Repository;
  */
 class VetementsRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getVetementWithProduct()
-    {
-        $qb =$this->createQueryBuilder('v')
-            ->Join('v.products','products')
-            ->addSelect('products');
-
-        return $qb->getQuery()->getResult();
-    }
+    private $query;
 
     public function getCategorieWithProduct($categorie)
     {
@@ -27,27 +20,40 @@ class VetementsRepository extends \Doctrine\ORM\EntityRepository
             ->Join('v.products','products')
             ->addSelect('products');
 
-        return $qb->getQuery()->getResult();
+        $this->query= $qb->getQuery();
+        return $this;
     }
 
     public function getPage($page, $nbPage)
     {
-        $query = $this->getEntityManager()->createQuery(
-            'select t
-            FROM DupriezProductBundle:Vetements t
-            ORDER BY t.id'
-        );
-        $query->setFirstResult(($page - 1) * $nbPage);
-        $query->setMaxResults($nbPage);
+        $this->query->setFirstResult(($page - 1) * $nbPage);
+        $this->query->setMaxResults($nbPage);
 
-        return $query->getResult();
+        return $this;
     }
 
-    public function getNombreDeTeeShirt()
+    public function getNombreProduct($product)
     {
         $query = $this->getEntityManager()->createQuery(
-            'SELECT Count(t.id) FROM DupriezProductBundle:Vetements t'
+            'SELECT Count(t.id) FROM DupriezProductBundle:Vetements t where t.categorie = \''.$product.'\''
         );
         return $query->getSingleScalarResult();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getQuery()
+    {
+        return $this->query;
+    }
+
+    /**
+     * @param mixed $query
+     */
+    public function setQuery($query)
+    {
+        $this->query = $query;
+    }
+
 }

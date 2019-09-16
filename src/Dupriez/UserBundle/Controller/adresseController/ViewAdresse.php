@@ -10,13 +10,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class ViewAdresse extends Controller
 {
     /**
-     * @Route("/adresse/{users}", name="adresse")
+     * @Route("/adresse/{user}", name="adresse")
      */
-    public function viewAdresseAction($users)
+    public function viewAdresseAction($user)
     {
         $adresseList=$this->getDoctrine()
             ->getRepository('DupriezUserBundle:Adresses')
-            ->findBy(array('users'=> $users));
+            ->findBy(array('users'=> $user));
         return $this->render('@DupriezUser/default/adresse/adresseTableau.html.twig', array('adresseList' =>$adresseList));
     }
 }

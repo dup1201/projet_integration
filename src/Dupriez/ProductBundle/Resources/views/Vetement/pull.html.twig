@@ -6,6 +6,7 @@
         <h1>Pull</h1>
 
         <div class="row">
+
             {% for pull in pullList %}
                 <div class="col-6">
                     <div class="card">
@@ -23,6 +24,13 @@
                 </div>
             {% endfor %}
         </div>
-
+        <br>
+        <div >
+            <ul class="pagination pagination-lg">
+                {% for i in 1..nbDePage %}
+                    <li class="page-item "></li> <a class="page-link" href="{{ path('teeshirt', {page: i}) }}">{{ i }}</a>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
 {% endblock %}

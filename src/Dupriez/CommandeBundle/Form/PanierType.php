@@ -22,7 +22,7 @@ class PanierType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Dupriez\CommandeBundle\Entity\Panier'
+            'data_class' => 'Dupriez\CommandeBundle\Entity\Contenu'
         ));
     }
 

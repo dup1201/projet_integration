@@ -14,7 +14,7 @@
       <p>pseudo : {{ userList.username }}</p>
 
 
-       <a class=" btn btn-primary" href="{{ path ('adresse', {"users":userList.id}) }}">voir adresse(s)</a><br><br>
-        <a class=" btn btn-primary" href="{{ path ('panier', {"users":userList.id}) }}">mon panier</a>
+       <a class=" btn btn-primary" href="{{ path ('adresse', {"user":userList.id}) }}">voir adresse(s)</a><br><br>
+        <a class=" btn btn-primary" href="{{ path ('panier', {"user":userList.id}) }}">mon panier</a>
     </div>
 {% endblock %}

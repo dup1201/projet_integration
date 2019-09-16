@@ -18,9 +18,9 @@ class VetementListController extends Controller
     {
         $vetementList = $this->getDoctrine()
             ->getRepository('DupriezProductBundle:Vetements')
-            ->getVetementWithProduct();
+            ->findAll();
 
-        return $this->render('@DupriezProduct/Vetement/vetement.html.twig', array('vetementList'=>$vetementList));
+        return $this->render('@DupriezProduct/Vetement/vetement.html.twig', array('vetementList' => $vetementList));
     }
 
     /**
@@ -34,13 +34,23 @@ class VetementListController extends Controller
     /**
      * @Route("/pull", name="pull")
      */
-    public function pullListAction()
+    public function pullListAction(Request $request)
     {
-        $pullList = $this->getDoctrine()
-            ->getRepository('DupriezProductBundle:Vetements')
-            ->getCategorieWithProduct('pull');
+        $page = $request->get('page', 1);
+        $nbParPage = 4;
 
-        return $this->render('@DupriezProduct/Vetement/pull.html.twig', array('pullList'=>$pullList));
+        $repository = $this->getDoctrine()
+            ->getRepository('DupriezProductBundle:Vetements');
+
+        $pullList = $repository
+            ->getCategorieWithProduct('pull')
+            ->getPage($page, $nbParPage)
+            ->getQuery()->getResult();
+
+        $nbDePull = $repository->getNombreProduct('pull');
+        $nbDePage = ceil($nbDePull / $nbParPage);
+
+        return $this->render('@DupriezProduct/Vetement/pull.html.twig', array('pullList' => $pullList, 'nbDePage' => $nbDePage));
     }
 
     /**
@@ -50,22 +60,19 @@ class VetementListController extends Controller
     public function teeShirtListAction(Request $request)
     {
         $page = $request->get('page', 1);
-            $nbParPage = 4;
+        $nbParPage = 4;
 
         $repository = $this->getDoctrine()
             ->getRepository('DupriezProductBundle:Vetements');
 
-            $teeShirtList=$repository
-            ->getPage($page, $nbParPage);
+        $teeShirtList = $repository
+            ->getCategorieWithProduct('tee-shirt')
+            ->getPage($page, $nbParPage)
+            ->getQuery()->getResult();
 
-            $nbDeTeeShirt = $repository->getNombreDeTeeShirt();
-            $nbDePage = ceil($nbDeTeeShirt / $nbParPage);
+        $nbDeTeeShirt = $repository->getNombreProduct('tee-shirt');
+        $nbDePage = ceil($nbDeTeeShirt / $nbParPage);
 
-
-
-
-        return $this->render('@DupriezProduct/Vetement/teeShirt.html.twig', array('teeShirtList'=>$teeShirtList, 'nbDePage'=>$nbDePage));
+        return $this->render('@DupriezProduct/Vetement/teeShirt.html.twig', array('teeShirtList' => $teeShirtList, 'nbDePage' => $nbDePage));
     }
-
-
 }
