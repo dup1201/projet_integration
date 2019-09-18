@@ -32,7 +32,9 @@ class AddTelephoneController extends Controller
 
             $em->flush();
 
-            return new Response('Telephone  ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "telephone ajouté");
+            return $this->redirectToRoute('productsgestion');
         }
 
         $fromView =$form->createView();

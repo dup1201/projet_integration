@@ -6,6 +6,7 @@ namespace Dupriez\ProductBundle\Controller\pcPortableController;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DeletePcController extends Controller
@@ -15,7 +16,7 @@ class DeletePcController extends Controller
      * @param $id
      * @return Response
      */
-    public function deletePcAction($id)
+    public function deletePcAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -24,6 +25,8 @@ class DeletePcController extends Controller
         $em->remove($pc);
         $em->flush();
 
-        return new Response('pc portable supprimé');
+        $flashbag = $this->get('session')->getFlashBag();
+        $flashbag->add("success", "pc portable supprimé");
+        return $this->redirectToRoute('pcgestion');
     }
 }

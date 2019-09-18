@@ -33,7 +33,9 @@ class AddpcController extends Controller
 
             $em->flush();
 
-            return new Response('Pc portable ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "pc ajouté");
+            return $this->redirectToRoute('productsgestion');
         }
 
         $fromView =$form->createView();

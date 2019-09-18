@@ -30,7 +30,8 @@ class EditTelephoneController extends Controller
 
             $em->flush();
 
-            return new Response('Telephone  modifié');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "téléphone modifié");
         }
 
         $fromView =$form->createView();

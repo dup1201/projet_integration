@@ -13,4 +13,12 @@
 
     {{ form_end(PcForm) }}
     </div>
+
+    {% if app.session.flashBag.has('ajoute') %}
+        <div class="alert alert-fail">
+            {% for msg in app.session.flashBag.get('ajoute') %}
+                {{ msg }}
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

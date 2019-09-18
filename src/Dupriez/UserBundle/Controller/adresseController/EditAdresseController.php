@@ -6,6 +6,7 @@ namespace Dupriez\UserBundle\Controller\adresseController;
 
 use Dupriez\UserBundle\Entity\Adresses;
 use Dupriez\UserBundle\Form\AdressesType;
+use FOS\UserBundle\Model\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,7 +22,7 @@ class EditAdresseController extends Controller
     public function editAdresseAction(Request $request, Adresses $adresse)
     {
 
-
+        $user = $this->getUser()->getId();
 
         $form= $this->createForm(AdressesType::class,$adresse);
 
@@ -35,7 +36,9 @@ class EditAdresseController extends Controller
 
             $em->flush();
 
-            return new Response('adresse modifié');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "Adresse modifié");
+            return $this->redirectToRoute('adresse',['user'=>$user]);
         }
 
         $fromView =$form->createView();

@@ -28,6 +28,7 @@ use Symfony\Component\Validator\Constraints as Assert;
      * @var string
      *
      * @ORM\Column(name="prix", type="decimal", precision=10, scale=2)
+     *
      */
     private $prix;
 
@@ -35,6 +36,9 @@ use Symfony\Component\Validator\Constraints as Assert;
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer")
+     * @Assert\Range(
+     *      min = 1,
+     *      minMessage = "la quantité doit être de minimum {{ limit }}")
      */
     private $quantite;
 

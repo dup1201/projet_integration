@@ -37,7 +37,9 @@ class AddAdresseController extends Controller
 
             $em->flush();
 
-            return new Response('adresse ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "Adresse ajouté");
+            return $this->redirectToRoute('adresse',['user'=>$user]);
         }
 
         $fromView =$form->createView();

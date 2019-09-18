@@ -6,6 +6,7 @@ namespace Dupriez\ProductBundle\Controller\livresController;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DeleteLivreController extends Controller
@@ -15,7 +16,7 @@ class DeleteLivreController extends Controller
      * @param $id
      * @return Response
      */
-    public function deleteLivreAction($id)
+    public function deleteLivreAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -24,6 +25,8 @@ class DeleteLivreController extends Controller
         $em->remove($livre);
         $em->flush();
 
-        return new Response('Livre supprimé');
+        $flashbag = $this->get('session')->getFlashBag();
+        $flashbag->add("success", "livre supprimé");
+        return $this->redirectToRoute('livregestion');
     }
 }

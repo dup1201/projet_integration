@@ -9,16 +9,32 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class PcListController extends Controller
 {
-    /**
-     * @Route("/pc", name="pc")
-     */
+
     public function pcListAction()
     {
-        $pcList = $this->getDoctrine()
+            $list= $this->getDoctrine()
             ->getRepository('DupriezProductBundle:PC_portable')
             ->getPcWithProduct();
 
-        return $this->render('@DupriezProduct/Pc/pc.html.twig', array('pcList'=>$pcList));
+        return $list;
 
     }
+
+    /**
+     * @Route("/pc", name="pc")
+     */
+    public function affichePcClient()
+    {
+        $pcList=$this->pcListAction();
+        return $this->render('@DupriezProduct/Pc/pc.html.twig', array('pcList'=>$pcList));
+    }
+    /**
+     * @Route("/pcgestion", name="pcgestion")
+     */
+    public function affichePcGestion()
+    {
+        $pcList=$this->pcListAction();
+        return $this->render('@DupriezProduct/Pc/pcGestion.html.twig', array('pcList'=>$pcList));
+    }
+
 }

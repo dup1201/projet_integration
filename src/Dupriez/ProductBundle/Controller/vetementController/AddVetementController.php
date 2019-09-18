@@ -32,7 +32,9 @@ class AddVetementController extends Controller
 
             $em->flush();
 
-            return new Response('Vetement ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "vetement ajouté");
+            return $this->redirectToRoute('productsgestion');
         }
 
         $fromView =$form->createView();

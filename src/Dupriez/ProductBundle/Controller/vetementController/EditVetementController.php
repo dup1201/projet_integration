@@ -30,7 +30,8 @@ class EditVetementController extends Controller
 
             $em->flush();
 
-            return new Response('Vetement ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "Vetement modifié");
         }
 
         $fromView =$form->createView();

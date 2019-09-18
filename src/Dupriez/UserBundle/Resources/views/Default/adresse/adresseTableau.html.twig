@@ -34,5 +34,11 @@
         <a class="btn btn-primary" href="{{ path('addadresse') }}"><span class="fas fa-plus"></span>  Ajouter une adresse</a>
     </div>
 
-
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 {% endblock %}

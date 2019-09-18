@@ -58,7 +58,7 @@ class Users extends BaseUser
      * @var \DateTime
      *
      * @ORM\Column(name="date_inscription", type="datetime", nullable=false)
-     * @ORM\Version
+     *
      */
     private $dateInscription;
 

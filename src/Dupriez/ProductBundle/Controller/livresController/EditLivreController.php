@@ -31,7 +31,9 @@ class EditLivreController extends Controller
 
             $em->flush();
 
-            return new Response('Livre modifié');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "livre modifié");
+            return $this->redirectToRoute('livregestion');
         }
 
         $fromView =$form->createView();

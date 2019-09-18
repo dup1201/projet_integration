@@ -56,7 +56,9 @@ class AddPanierController extends Controller
 
             $em->flush();
 
-            return new Response('produit ajouté au panier');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "produit ajouter au panier");
+            return $this->redirectToRoute('products');
         }
 
         $fromView = $form->createView();

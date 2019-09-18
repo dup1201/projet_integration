@@ -14,6 +14,7 @@ class UsersListController extends Controller
      */
     public function usersListAction()
     {
+        $this->denyAccessUnlessGranted('ROLE_ADMIN', null, "Vous ne pouvez voir cette page que si vous êtes administrateur ");
         $usersList= $this->getDoctrine()
             ->getRepository('DupriezUserBundle:Users')
             ->findAll();

@@ -33,7 +33,9 @@ class AddLivreController extends Controller
 
             $em->flush();
 
-            return new Response('Livre ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "livre ajouté");
+            return $this->redirectToRoute('productsgestion');
         }
 
         $fromView =$form->createView();

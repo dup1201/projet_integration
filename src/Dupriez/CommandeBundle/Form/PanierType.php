@@ -2,8 +2,8 @@
 
 namespace Dupriez\CommandeBundle\Form;
 
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -14,8 +14,7 @@ class PanierType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('quantite')
-                ;
+        $builder->add('quantite', IntegerType::class, array('attr'=> array('min'=>1, 'max'=>25)));
     }/**
      * {@inheritdoc}
      */

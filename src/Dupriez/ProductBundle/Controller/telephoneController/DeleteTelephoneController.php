@@ -6,6 +6,7 @@ namespace Dupriez\ProductBundle\Controller\telephoneController;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class DeleteTelephoneController extends Controller
@@ -15,7 +16,7 @@ class DeleteTelephoneController extends Controller
      * @param $id
      * @return Response
      */
-    public function deleteLivreAction($id)
+    public function deleteLivreAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -24,6 +25,8 @@ class DeleteTelephoneController extends Controller
         $em->remove($telephone);
         $em->flush();
 
-        return new Response('Telephone supprimé');
+        $flashbag = $this->get('session')->getFlashBag();
+        $flashbag->add("success", "téléphone supprimé");
+        return $this->redirectToRoute('telephonegestion');
     }
 }

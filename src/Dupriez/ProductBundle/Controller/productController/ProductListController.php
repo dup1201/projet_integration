@@ -14,11 +14,14 @@ class ProductListController extends Controller
      */
     public function productListAction()
     {
-        $productList= $this->getDoctrine()
-            ->getRepository('DupriezProductBundle:Products')
-            ->findAll();
+        $this->denyAccessUnlessGranted(['ROLE_ADMIN','ROLE_GESTIONNAIRE'], null, "Vous ne pouvez voir cette page que si vous êtes administrateur ou gestionnaire de produit");
+            $productList= $this->getDoctrine()
+                ->getRepository('DupriezProductBundle:Products')
+                ->findAll();
 
-        return $this->render('@DupriezProduct/Product/product.html.twig', array('productList'=>$productList));
+            return $this->render('@DupriezProduct/Product/product.html.twig', array('productList'=>$productList));
+
+
     }
 
     /**
@@ -32,4 +35,5 @@ class ProductListController extends Controller
 
         return $this->render('@DupriezProduct/Product/productList.html.twig', array('productList'=>$productList));
     }
+
 }

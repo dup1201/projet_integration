@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Pc portable</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Prix</th>
+
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for pc in pcList %}
+                <tr>
+                    <td><img alt="pc" src="{{ asset('uploads/images/' ~ pc.products.image) }}" height="200px" width="200px"></td>
+                    <td>{{ pc.products.prix }}€</td>
+
+                    <td>
+                        <a href="{{ path('editpc', {"id":pc.id}) }}"><span class="fas fa-edit black"></span></a>
+                        <a href="{{ path ('deletepc', {"id":pc.id}) }}"><span class="fas fa-trash black"></span></a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

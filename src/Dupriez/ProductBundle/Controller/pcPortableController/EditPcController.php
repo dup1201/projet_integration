@@ -31,7 +31,8 @@ class EditPcController extends Controller
 
             $em->flush();
 
-            return new Response('Pc portable ajouté');
+            $flashbag = $this->get('session')->getFlashBag();
+            $flashbag->add("success", "pc modifié");
         }
 
         $fromView =$form->createView();

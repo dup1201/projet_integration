@@ -2,16 +2,26 @@
 
 {% block body %}
     <div class="container">
-    <h2>Ajouter un produit </h2>
-    <h3><a href="{{ path('addlivre')}}">Ajouter un livre</a>&nbsp &nbsp
-        <a href="{{ path('addpc')}}">Ajouter un pc portable</a>&nbsp &nbsp
-        <a href="{{ path('addtelephone')}}">Ajouter un telephone</a>&nbsp &nbsp
-        <a href="{{ path('addvetement')}}">Ajouter un vetement</a>
-    </h3>
-    <h1>Liste des produits</h1>
-    <h3><a href="{{ path('livre') }}">Livres</a>&nbsp &nbsp
-    <a href="{{ path('pc') }}">PC portables</a>&nbsp &nbsp
-    <a href="{{ path('telephonegestion') }}">Telephones</a>&nbsp &nbsp
-    <a href="{{ path('vetement') }}">Vetements</a> </h3>
+        <h2>Ajouter un produit </h2>
+        <h3><a class="btn btn-primary" href="{{ path('addlivre') }}">Ajouter un livre</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('addpc') }}">Ajouter un pc portable</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('addtelephone') }}">Ajouter un telephone</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('addvetement') }}">Ajouter un vetement</a>
+        </h3>
+
+        <h1>Liste des produits</h1>
+
+        <h3><a class="btn btn-primary" href="{{ path('livregestion') }}">Livres</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('pcgestion') }}">PC portables</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('telephonegestion') }}">Telephones</a>&nbsp &nbsp
+            <a class="btn btn-primary" href="{{ path('vetement') }}">Vetements</a></h3>
     </div>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
 {% endblock %}

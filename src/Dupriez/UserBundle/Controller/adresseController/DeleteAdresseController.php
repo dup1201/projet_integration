@@ -18,12 +18,16 @@ class DeleteAdresseController extends Controller
      */
     public function deleteAdresseAction($id)
     {
+        $user = $this->getUser()->getId();
+
         $em = $this->getDoctrine()->getManager();
         $repository = $em->getRepository('DupriezUserBundle:Adresses');
         $adresse = $repository->find($id);
         $em->remove($adresse);
         $em->flush();
 
-        return new Response('Adresse supprimé');
+        $flashbag = $this->get('session')->getFlashBag();
+        $flashbag->add("success", "Adresse ajouté");
+        return $this->redirectToRoute('adresse',['user'=>$user]);
     }
 }

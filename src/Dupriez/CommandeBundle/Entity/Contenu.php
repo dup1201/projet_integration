@@ -3,6 +3,7 @@
 namespace Dupriez\CommandeBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contenu
@@ -39,6 +40,10 @@ class Contenu
      * @var int
      *
      * @ORM\Column(name="quantite", type="integer")
+     * @Assert\Range(
+     *      min = 1,
+     *      minMessage = "la quantité doit être de minimum {{ limit }}")
+     *
      */
     private $quantite;
 

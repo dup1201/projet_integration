@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <h1>Livres</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Prix</th>
+
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for livre in livreList %}
+                <tr>
+                    <td><img alt="livre" src="{{ asset('uploads/images/' ~ livre.products.image) }}" height="200px" width="200px"></td>
+                    <td>{{ livre.products.prix }}€</td>
+
+                    <td>
+                        <a href="{{ path('editlivre', {"id":livre.id}) }}"><span class="fas fa-edit black"></span></a>
+                        <a href="{{ path ('deletelivre', {"id":livre.id}) }}"><span class="fas fa-trash black"></span></a> </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
